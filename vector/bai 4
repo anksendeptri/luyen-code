@@ -1,0 +1,49 @@
+/*Bài toán: Viết chương trình quản lý danh sách số điện thoại (chuỗi string).
+
+Cho phép nhập 3 số điện thoại.
+
+Kiểm tra xem số "0909123456" có trong danh sách không.
+
+Nếu có, hãy xóa nó đi.*/
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+void Nhap(vector<string> &s)
+{
+    string temp; 
+    cout << "Nhap vao lan luot 3 so dien thoai:\n";
+    for (int i=0; i < 3; i++)
+    { 
+        cin >> temp;
+        s.push_back(temp);
+    }
+}
+
+void Xoa(vector<string> &s)
+{
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == "0909123456")
+        {
+            s.erase(s.begin() + i);
+            i--;
+        }
+    }
+}
+
+void Xuat(vector<string> const &s)
+{
+    cout << "Danh sach so dien thoai: \n";
+    for(string x : s) cout << x << "\n";
+}
+int main() 
+{
+    vector<string> sdt;
+    Nhap(sdt);
+    Xoa(sdt);
+    Xuat(sdt);
+    return 0;
+}
